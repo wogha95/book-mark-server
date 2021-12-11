@@ -33,3 +33,4 @@ Mobile, Tablet, Desktop, Public PC 등 다양한 환경에서 자신만의 즐�
 2. book-mark-server/server/db/config.js 작성합니다.
 3. book-mark/bookmark 에서 `npm run build` 실행
 4. book-mark-server/server 에서 `npm start` 실행
+5. 브라우저 주소창에 `localhost:3000` 으로 접속
