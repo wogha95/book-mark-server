@@ -1,8 +1,11 @@
+require('dotenv').config({path: "./db/.env"});
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+// session 사용한다는 가정
+// const session = require('express-session');
 
 var bookmarkRouter = require('./routes/index');
 var errorRouter = require('./routes/error');
@@ -18,6 +21,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+// session 사용한다는 가정
+// app.use(session({
+//   key: 'bookmark',
+//   secret: process.env.SESSION_SECRET,
+//   resave: false,
+//   saveUninitialized: true,  
+// }))
 
 app.use('/api', bookmarkRouter);
 app.use('/', errorRouter);

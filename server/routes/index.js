@@ -15,15 +15,23 @@ router.post('/login', async function (req, res, next) {
 
   try {
     const [rows, fields] = await pool.query(sql, params);
-    console.log(rows);
-    if(rows.length > 0)
-      res.send({login: true});
+
+    if(rows.length > 0){
+      res.send({
+        login: true,
+      });
+    }
     else
       res.send({login: false});
     
   } catch (error) {
     console.log(error);
   }
+});
+
+// localhost:3000/api/logout
+router.get('/logout', async function (req, res, next) {
+  console.log('im logout');
 });
 
 // localhost:3000/api/register
