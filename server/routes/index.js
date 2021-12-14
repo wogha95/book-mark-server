@@ -75,6 +75,32 @@ router.post('/bookmark', async function (req, res, next) {
   }
 });
 
+// localhost:3000/api/deleteBookmark
+router.post('/deleteBookmark', async function (req, res, next) {
+  console.log('im DELETE bookmark');
+
+  let email = req.body.email;
+  let name = req.body.name;
+
+  const sql = 'DELETE FROM bookmark WHERE email = ? AND name = ?';
+  const params = [email, name];
+
+  try {
+    const [rows, fields] = await pool.query(sql, params);
+    console.log(rows);
+    if(rows.length > 0){
+      res.send({
+        
+      });
+    }
+    else
+      res.send({ });
+    
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 // localhost:3000/api
 router.get('/', function (req, res, next) {
   console.log('##############################');
