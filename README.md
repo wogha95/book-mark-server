@@ -18,6 +18,11 @@ Mobile, Tablet, Desktop, Public PC 등 다양한 환경에서 자신만의 즐�
 
 <br>
 
+## 📃ERD 설계
+(사진 예정)
+
+<br>
+
 ## 💻Usage
 ```
 ├── book-mark
