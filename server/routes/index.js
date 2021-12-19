@@ -65,11 +65,38 @@ router.post('/bookmark', async function (req, res, next) {
 
   try {
     const [rows, fields] = await pool.query(sql, params);
-    console.log(rows);
+    
     if(rows.length > 0)
       res.send({done: true, rows});
     else
       res.send({done: false});
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+router.post('/editBookmark', async function (req, res, next) {
+  console.log('im EDIT bookmark');
+
+  let email = req.body.email;
+  let name = req.body.name;
+  let nextName = req.body.nextName;
+  let nextAddress = req.body.nextAddress;
+
+  const sql = 'UPDATE bookmark SET name = ?, address = ? WHERE email = ? and name = ?';
+  const params = [nextName, nextAddress, email, name];
+
+  try {
+    const [rows, fields] = await pool.query(sql, params);
+
+    // if edit success
+    if(!(rows.length > 0)) {
+      console.log('EDIT SUCCESS');
+      res.send({ });
+    }
+    else
+      res.send({ });
+    
   } catch (error) {
     console.log(error);
   }
@@ -87,7 +114,7 @@ router.post('/deleteBookmark', async function (req, res, next) {
 
   try {
     const [rows, fields] = await pool.query(sql, params);
-    console.log(rows);
+    
     if(rows.length > 0){
       res.send({
         
