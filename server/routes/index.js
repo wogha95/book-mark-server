@@ -75,6 +75,34 @@ router.post('/bookmark', async function (req, res, next) {
   }
 });
 
+//localhost:3000/api/createBookmark
+router.post('/createBookmark', async function (req, res, next) {
+  console.log('im CREATE bookmark');
+
+  let email = req.body.email;
+  let name = req.body.name;
+  let address = req.body.address;
+
+  const sql = 'INSERT INTO bookmark VALUES(?, ?, ?)';
+  const params = [email, name, address];
+
+  try {
+    const [rows, fields] = await pool.query(sql, params);
+
+    // if edit success
+    if(!(rows.length > 0)) {
+      console.log('CREATE SUCCESS');
+      res.send({ });
+    }
+    else
+      res.send({ });
+    
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+// localhost:3000/api/editBookmark
 router.post('/editBookmark', async function (req, res, next) {
   console.log('im EDIT bookmark');
 
