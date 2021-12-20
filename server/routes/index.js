@@ -34,9 +34,9 @@ router.get('/logout', async function (req, res, next) {
   console.log('im logout');
 });
 
-// localhost:3000/api/register
-router.post('/register', async function (req, res, next) {
-  console.log('im register');
+// localhost:3000/api/registerUser
+router.post('/registerUser', async function (req, res, next) {
+  console.log('im registerUser');
 
   let email = req.body.email;
   let pw = req.body.pw;
@@ -52,6 +52,39 @@ router.post('/register', async function (req, res, next) {
   } catch (error) {
     console.log(error);
     res.send({register: false});
+  }
+});
+
+// localhost:3000/api/deleteUser
+router.post('/deleteUser', async function (req, res, next) {
+  console.log('im deleteUser');
+
+  let email = req.body.email;
+  let pw = req.body.pw;
+
+  const sql = 'SELECT * FROM user WHERE email = ? AND pw = ?';
+  const sql2 = 'DELETE FROM user WHERE email = ? AND pw = ?';
+  const params = [email, pw];
+
+  try {
+    // 계정 유무 확인
+    const [rows, fields] = await pool.query(sql, params);
+
+    if(rows.length > 0) {
+      // 삭제 작업
+      console.log(rows);
+      const [rows2, fields2] = await pool.query(sql2, params);
+      console.log('####################');
+      console.log(rows2);
+      if(!(rows2.length > 0))
+        res.send({delete: true});
+      else
+        res.send({delete: false});
+    }
+    else
+      res.send({delete: false});
+  } catch (error) {
+    console.log(error);
   }
 });
 
