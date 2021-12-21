@@ -55,6 +55,27 @@ router.post('/registerUser', async function (req, res, next) {
   }
 });
 
+// localhost:3000/api/updateUser
+router.post('/updateUser', async function (req, res, next) {
+  console.log('im updateUser');
+
+  let email = req.body.email;
+  let pw = req.body.pw;
+
+  const sql = 'UPDATE user SET pw = ? WHERE email = ?';
+  const params = [pw, email];
+
+  try {
+    const [rows, fields] = await pool.query(sql, params);
+
+    if(!(rows.length > 0))
+      res.send({update: true});
+  } catch (error) {
+    console.log(error);
+    res.send({update: false});
+  }
+});
+
 // localhost:3000/api/deleteUser
 router.post('/deleteUser', async function (req, res, next) {
   console.log('im deleteUser');
