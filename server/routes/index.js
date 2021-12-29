@@ -60,16 +60,27 @@ router.post('/updateUser', async function (req, res, next) {
   console.log('im updateUser');
 
   let email = req.body.email;
-  let pw = req.body.pw;
+  let pwBefore = req.body.pwBefore;
+  let pwAfter = req.body.pwAfter;
 
-  const sql = 'UPDATE user SET pw = ? WHERE email = ?';
-  const params = [pw, email];
+  const sql = 'SELECT * FROM user WHERE email = ? AND pw = ?';
+  const sql2 = 'UPDATE user SET pw = ? WHERE email = ?';
+  const params = [email, pwBefore];
+  const params2 = [pwAfter, email];
 
   try {
     const [rows, fields] = await pool.query(sql, params);
 
-    if(!(rows.length > 0))
-      res.send({update: true});
+    if(rows.length > 0) {
+      const [rows2, fields2] = await pool.query(sql2, params2);
+
+      if(!(rows2.length > 0))
+        res.send({update: true});
+      else
+        res.send({update: false})
+    }
+    else
+      res.send({update: false})
   } catch (error) {
     console.log(error);
     res.send({update: false});
@@ -93,10 +104,8 @@ router.post('/deleteUser', async function (req, res, next) {
 
     if(rows.length > 0) {
       // 삭제 작업
-      console.log(rows);
       const [rows2, fields2] = await pool.query(sql2, params);
-      console.log('####################');
-      console.log(rows2);
+      
       if(!(rows2.length > 0))
         res.send({delete: true});
       else
