@@ -55,9 +55,11 @@ markdown 을 사용하기 위해서 입니다.
 
 1. 빈 폴더에 [book-mark](https://github.com/wogha95/book-mark)와 [book-mark-server](https://github.com/wogha95/book-mark-server)를 clone합니다.
 2. book-mark-server/server/db/config.js 작성합니다.
-3. book-mark/bookmark 에서 `npm run build` 실행
-4. book-mark-server/server 에서 `npm start` 실행
-5. 브라우저 주소창에 `localhost:3000` 으로 접속
+3. config.js과 동일하게 Mysql DB connection을 생성합니다.
+4. ERD 설계와 동일하게 table을 생성합니다.
+5. book-mark/bookmark 에서 `npm run build` 실행
+6. book-mark-server/server 에서 `npm start` 실행
+7. 브라우저 주소창에 `localhost:3000` 으로 접속
 
 <br>
 
