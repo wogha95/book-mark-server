@@ -18,7 +18,7 @@ Mobile, Tablet, Desktop, Public PC 등 다양한 환경에서 자신만의 즐�
 <br>
 
 ## 📃ERD 설계
-(사진 예정)
+![bookmarkDB](https://user-images.githubusercontent.com/75886763/147713736-6d20eeed-f8cb-4f2a-ad1d-78c27958e414.png)
 
 <br>
 
