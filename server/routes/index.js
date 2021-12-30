@@ -143,11 +143,12 @@ router.post('/createBookmark', async function (req, res, next) {
   console.log('im CREATE bookmark');
 
   let email = req.body.email;
+  let star = parseInt(req.body.star);
   let name = req.body.name;
   let address = req.body.address;
 
-  const sql = 'INSERT INTO bookmark VALUES(?, ?, ?)';
-  const params = [email, name, address];
+  const sql = 'INSERT INTO bookmark VALUES(?, ?, ?, ?)';
+  const params = [email, star, name, address];
 
   try {
     const [rows, fields] = await pool.query(sql, params);
@@ -213,6 +214,32 @@ router.post('/deleteBookmark', async function (req, res, next) {
     }
     else
       res.send({ });
+    
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+// localhost:3000/api/updateStar
+router.post('/updateStar', async function (req, res, next) {
+  console.log('im UPDATE star');
+
+  let email = req.body.email;
+  let star = req.body.star;
+  let name = req.body.name;
+  let address = req.body.address;
+
+  const sql = 'UPDATE bookmark SET star = ? WHERE email = ? AND name = ? AND address = ?';
+  const params = [star, email, name, address];
+
+  try {
+    const [rows, fields] = await pool.query(sql, params);
+    
+    if(!(rows.length > 0)){
+      res.send({ star: true });
+    }
+    else
+      res.send({ star: false });
     
   } catch (error) {
     console.log(error);
