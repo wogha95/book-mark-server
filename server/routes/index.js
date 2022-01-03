@@ -55,8 +55,8 @@ router.post('/user', async function (req, res, next) {
   }
 });
 
-// localhost:3000/api/user
-router.put('/user', async function (req, res, next) {
+// localhost:3000/api/password
+router.put('/password', async function (req, res, next) {
   console.log('im updateUser');
 
   let email = req.body.email;
@@ -87,8 +87,8 @@ router.put('/user', async function (req, res, next) {
   }
 });
 
-// localhost:3000/api/deleteUser
-router.post('/deleteUser', async function (req, res, next) {
+// localhost:3000/api/user
+router.put('/user', async function (req, res, next) {
   console.log('im deleteUser');
 
   let email = req.body.email;
