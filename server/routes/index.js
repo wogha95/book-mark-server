@@ -118,8 +118,8 @@ router.post('/deleteUser', async function (req, res, next) {
   }
 });
 
-// localhost:3000/api/bookmark
-router.post('/bookmark', async function (req, res, next) {
+// localhost:3000/api/bookmarks
+router.post('/bookmarks', async function (req, res, next) {
   console.log('im bookmark');
 
   let email = req.body.email;
