@@ -55,8 +55,8 @@ router.post('/user', async function (req, res, next) {
   }
 });
 
-// localhost:3000/api/updateUser
-router.post('/updateUser', async function (req, res, next) {
+// localhost:3000/api/user
+router.put('/user', async function (req, res, next) {
   console.log('im updateUser');
 
   let email = req.body.email;
