@@ -194,8 +194,8 @@ router.post('/editBookmark', async function (req, res, next) {
   }
 });
 
-// localhost:3000/api/deleteBookmark
-router.post('/deleteBookmark', async function (req, res, next) {
+// localhost:3000/api/bookmark
+router.put('/bookmark', async function (req, res, next) {
   console.log('im DELETE bookmark');
 
   let email = req.body.email;
