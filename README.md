@@ -42,6 +42,23 @@ markdown 을 사용하기 위해서 입니다.
 
 <br>
 
+## 📝리팩토링
+
+### 1. REST API 적용
+|변경 전|변경 후|
+|:-------:|:-------:|
+|post + registerUser|post + user|
+|post + updateUser|put + password|
+|post + deleteUser|put + user|
+|post + bookmark|post + bookmarks|
+|post + createBookmark|post + bookmark|
+|post + editBookmark|put + name-address|
+|post + deleteBookmark|put + bookmark|
+|post + updateStar|put + star|
+
+
+<br>
+
 ## 💻Usage
 ```
 ├── book-mark
