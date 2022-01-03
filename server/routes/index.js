@@ -220,8 +220,8 @@ router.post('/deleteBookmark', async function (req, res, next) {
   }
 });
 
-// localhost:3000/api/updateStar
-router.post('/updateStar', async function (req, res, next) {
+// localhost:3000/api/star
+router.put('/star', async function (req, res, next) {
   console.log('im UPDATE star');
 
   let email = req.body.email;
