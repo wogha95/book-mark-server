@@ -34,8 +34,8 @@ router.get('/logout', async function (req, res, next) {
   console.log('im logout');
 });
 
-// localhost:3000/api/registerUser
-router.post('/registerUser', async function (req, res, next) {
+// localhost:3000/api/user
+router.post('/user', async function (req, res, next) {
   console.log('im registerUser');
 
   let email = req.body.email;
@@ -55,8 +55,8 @@ router.post('/registerUser', async function (req, res, next) {
   }
 });
 
-// localhost:3000/api/updateUser
-router.post('/updateUser', async function (req, res, next) {
+// localhost:3000/api/password
+router.put('/password', async function (req, res, next) {
   console.log('im updateUser');
 
   let email = req.body.email;
@@ -87,8 +87,8 @@ router.post('/updateUser', async function (req, res, next) {
   }
 });
 
-// localhost:3000/api/deleteUser
-router.post('/deleteUser', async function (req, res, next) {
+// localhost:3000/api/user
+router.put('/user', async function (req, res, next) {
   console.log('im deleteUser');
 
   let email = req.body.email;
@@ -118,8 +118,8 @@ router.post('/deleteUser', async function (req, res, next) {
   }
 });
 
-// localhost:3000/api/bookmark
-router.post('/bookmark', async function (req, res, next) {
+// localhost:3000/api/bookmarks
+router.post('/bookmarks', async function (req, res, next) {
   console.log('im bookmark');
 
   let email = req.body.email;
@@ -138,8 +138,8 @@ router.post('/bookmark', async function (req, res, next) {
   }
 });
 
-//localhost:3000/api/createBookmark
-router.post('/createBookmark', async function (req, res, next) {
+//localhost:3000/api/bookmark
+router.post('/bookmark', async function (req, res, next) {
   console.log('im CREATE bookmark');
 
   let email = req.body.email;
@@ -166,8 +166,8 @@ router.post('/createBookmark', async function (req, res, next) {
   }
 });
 
-// localhost:3000/api/editBookmark
-router.post('/editBookmark', async function (req, res, next) {
+// localhost:3000/api/name-address
+router.put('/name-address', async function (req, res, next) {
   console.log('im EDIT bookmark');
 
   let email = req.body.email;
@@ -194,8 +194,8 @@ router.post('/editBookmark', async function (req, res, next) {
   }
 });
 
-// localhost:3000/api/deleteBookmark
-router.post('/deleteBookmark', async function (req, res, next) {
+// localhost:3000/api/bookmark
+router.put('/bookmark', async function (req, res, next) {
   console.log('im DELETE bookmark');
 
   let email = req.body.email;
@@ -220,8 +220,8 @@ router.post('/deleteBookmark', async function (req, res, next) {
   }
 });
 
-// localhost:3000/api/updateStar
-router.post('/updateStar', async function (req, res, next) {
+// localhost:3000/api/star
+router.put('/star', async function (req, res, next) {
   console.log('im UPDATE star');
 
   let email = req.body.email;
