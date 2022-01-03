@@ -138,8 +138,8 @@ router.post('/bookmarks', async function (req, res, next) {
   }
 });
 
-//localhost:3000/api/createBookmark
-router.post('/createBookmark', async function (req, res, next) {
+//localhost:3000/api/bookmark
+router.post('/bookmark', async function (req, res, next) {
   console.log('im CREATE bookmark');
 
   let email = req.body.email;
