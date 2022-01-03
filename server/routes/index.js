@@ -34,8 +34,8 @@ router.get('/logout', async function (req, res, next) {
   console.log('im logout');
 });
 
-// localhost:3000/api/registerUser
-router.post('/registerUser', async function (req, res, next) {
+// localhost:3000/api/user
+router.post('/user', async function (req, res, next) {
   console.log('im registerUser');
 
   let email = req.body.email;
