@@ -5,7 +5,7 @@ Mobile과 Tablet, 노트북을 바꿔가면서 쓰는 생활 속에
 
 <br>
 
-- 해당 프로젝트의 Back-End 부분입니다.
+- 해당 프로젝트의 Back-End 부분입니다. [(Front-End 보러가기)](https://github.com/wogha95/book-mark)
 - 개인 프로젝트
 - 개발기간 : 2021.12
 
